@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH-SHOP HI-END | Cửa Hàng Công Nghệ</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-microchip"></i> TECH-SHOP
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Trang Chủ</a></li>
+                <li><a href="index.html#shop">Laptop - PC</a></li>
+                <li><a href="#">Linh Kiện</a></li>
+                <li><a href="#">Khuyến Mãi</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                    <i class="fa-solid fa-search" id="searchBtn"></i>
+                </div>
+                <button class="cart-btn" id="cartToggle">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Giỏ Hàng Của Bạn</h3>
+            <button id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-body" id="cartContent">
+            </div>
+        <div class="cart-footer">
+            <h3>Tổng: 0đ</h3>
+            <button class="checkout-btn" id="checkoutBtn">Thanh Toán Ngay</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Cỗ Máy Chơi Game <br><span>Đỉnh Cao</span></h1>
+            <p>Phân phối Workstation, PC Gaming và linh kiện Hi-end chính hãng.</p>
+            <a href="#shop" class="btn-primary">Khám Phá Ngay <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </header>
+
+    <div class="container layout-grid" id="shop">
+        
+        <aside class="sidebar">
+            <div class="widget">
+                <h3><i class="fa-solid fa-bars"></i> Danh Mục</h3>
+                <ul class="category-list" id="categoryFilter">
+                    <li><a href="#" data-category="laptop">Laptop Lập Trình <span>(15)</span></a></li>
+                    <li><a href="#" data-category="pc">PC Đồ Họa / Render <span>(8)</span></a></li>
+                    <li><a href="#" data-category="vga">VGA - Card Màn Hình <span>(24)</span></a></li>
+                    <li><a href="#" data-category="monitor">Màn Hình Cảm Ứng <span>(10)</span></a></li>
+                </ul>
+            </div>
+            <div class="widget promo-widget">
+                <h3>Bộ Lọc Nâng Cao</h3>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Tính năng lọc theo mức giá sẽ sớm được cập nhật!</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h2>Sản Phẩm Bán Chạy</h2>
+                <select class="sort-select" id="sortSelect">
+                    <option value="newest">Mới nhất</option>
+                    <option value="price_asc">Giá tăng dần</option>
+                    <option value="price_desc">Giá giảm dần</option>
+                </select>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                
+                <div class="product-card" data-id="SP001" data-category="laptop">
+                    <div class="badge hot">HOT</div>
+                    <a href="detail.html">
+                        <div class="product-img">
+                            <img src="https://picsum.photos/id/1/400/300" alt="MacBook">
+                        </div>
+                    </a>
+                    <div class="product-info">
+                        <a href="detail.html"><h3>MacBook Pro M3 Max</h3></a>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="desc">Cỗ máy di động mạnh nhất cho Developer.</p>
+                        <div class="price-action">
+                            <span class="price">85.000.000đ</span>
+                            <button class="add-cart" title="Thêm vào giỏ"><i class="fa-solid fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="SP002" data-category="phone">
+                    <a href="detail.html">
+                        <div class="product-img">
+                            <img src="https://picsum.photos/id/160/400/300" alt="iPhone">
+                        </div>
+                    </a>
+                    <div class="product-info">
+                        <a href="detail.html"><h3>iPhone 16 Pro Max</h3></a>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="desc">Chất liệu Titanium, chip A18 Pro siêu tốc.</p>
+                        <div class="price-action">
+                            <span class="price">34.990.000đ</span>
+                            <button class="add-cart" title="Thêm vào giỏ"><i class="fa-solid fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="SP003" data-category="vga">
+                    <div class="badge sale">SALE</div>
+                    <a href="detail.html">
+                        <div class="product-img">
+                            <img src="https://picsum.photos/id/2/400/300" alt="VGA">
+                        </div>
+                    </a>
+                    <div class="product-info">
+                        <a href="detail.html"><h3>VGA ASUS ROG RTX 5090</h3></a>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="desc">Chiến mọi game, xử lý tác vụ AI mượt mà.</p>
+                        <div class="price-action">
+                            <span class="price">60.500.000đ</span>
+                            <button class="add-cart" title="Thêm vào giỏ"><i class="fa-solid fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3 class="logo-text"><i class="fa-solid fa-microchip"></i> TECH-SHOP</h3>
+                <p>Hệ thống cung cấp thiết bị công nghệ hàng đầu, đồng hành cùng các dự án IT của bạn.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Liên Hệ</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> Khu Công Nghệ Cao, TP.HCM</li>
+                    <li><i class="fa-solid fa-phone"></i> 1900 xxxx</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@techshop.vn</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Bản Tin</h3>
+                <div class="newsletter">
+                    <input type="email" placeholder="Nhập email...">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nguyen Thai Sang 2380601900.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm | TECH-SHOP HI-END</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-microchip"></i> TECH-SHOP
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="index.html#shop" class="active">Laptop - PC</a></li>
+                <li><a href="#">Linh Kiện</a></li>
+                <li><a href="#">Khuyến Mãi</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                    <i class="fa-solid fa-search" id="searchBtn"></i>
+                </div>
+                <button class="cart-btn" id="themeToggle" title="Đổi giao diện">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <button class="cart-btn" id="cartToggle">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Giỏ Hàng Của Bạn</h3>
+            <button id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-body" id="cartContent">
+        </div>
+        <div class="cart-footer">
+            <div class="discount-box" style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input type="text" id="couponInput" placeholder="Nhập mã giảm giá..." style="flex-grow: 1; padding: 8px; border-radius: 5px; border: none; outline: none; background: rgba(255,255,255,0.1); color: white;">
+                <button id="applyCouponBtn" style="padding: 8px 15px; background: var(--primary); color: var(--bg-dark); border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Áp Dụng</button>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 id="cartTotal">Tổng: 0đ</h3>
+                <button onclick="clearCart()" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.9rem;">Xóa tất cả</button>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Thanh Toán Ngay</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <main class="container" style="margin-top: 100px; padding-bottom: 60px;">
+        
+        <div class="breadcrumb">
+            <a href="index.html">Trang Chủ</a> <i class="fa-solid fa-chevron-right"></i>
+            <a href="index.html#shop">Sản Phẩm</a> <i class="fa-solid fa-chevron-right"></i>
+            <span id="breadcrumbName">Đang tải...</span>
+        </div>
+
+        <div class="product-detail-grid">
+            <div class="detail-gallery">
+                <div class="main-image">
+                    <img src="" alt="Sản phẩm" id="currentImage">
+                </div>
+                <div class="thumbnail-list">
+                    <img src="" class="thumb active" onclick="changeImage(this)" alt="Thumb 1">
+                    <img src="https://picsum.photos/id/20/800/600" class="thumb" onclick="changeImage(this)" alt="Thumb 2">
+                    <img src="https://picsum.photos/id/36/800/600" class="thumb" onclick="changeImage(this)" alt="Thumb 3">
+                </div>
+            </div>
+
+            <div class="detail-info">
+                <span class="badge hot" style="position: static; display: inline-block; margin-bottom: 15px;">HOT</span>
+                <h1 id="detailName">Đang tải tên sản phẩm...</h1>
+                
+                <div class="rating-review">
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <span class="reviews">(128 đánh giá)</span>
+                </div>
+                
+                <div class="detail-price" id="detailPrice">
+                    Đang tải giá...
+                </div>
+
+                <div class="detail-desc">
+                    <p id="detailDesc">Đang tải mô tả chi tiết...</p>
+                </div>
+
+                <div class="purchase-actions">
+                    <div class="quantity-control">
+                        <button onclick="updateDetailQty(-1)">-</button>
+                        <input type="number" id="detailQtyInput" value="1" min="1" readonly>
+                        <button onclick="updateDetailQty(1)">+</button>
+                    </div>
+                    <button class="btn-primary add-to-cart-large" id="detailAddToCartBtn">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm Vào Giỏ
+                    </button>
+                </div>
+
+                <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3 class="logo-text"><i class="fa-solid fa-microchip"></i> TECH-SHOP</h3>
+                <p>Hệ thống cung cấp thiết bị công nghệ hàng đầu, đồng hành cùng các dự án IT của bạn.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Liên Hệ</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> Khu Công Nghệ Cao, TP.HCM</li>
+                    <li><i class="fa-solid fa-phone"></i> 1900 xxxx</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@techshop.vn</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Bản Tin</h3>
+                <div class="newsletter">
+                    <input type="email" placeholder="Nhập email...">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nguyen Thai Sang 2380601900.</p>
+        </div>
+    </footer>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="main.js"></script>
+    
+    <script>
+        function changeImage(element) {
+            document.getElementById('currentImage').src = element.src;
+            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function updateDetailQty(change) {
+            const input = document.getElementById('detailQtyInput');
+            let newVal = parseInt(input.value) + change;
+            if(newVal >= 1) {
+                input.value = newVal;
+            }
+        }
+
+        function addDetailToCart(productId) {
+            const qty = parseInt(document.getElementById('detailQtyInput').value);
+            if(window.addToCart) {
+                window.addToCart(productId, qty);
+            }
+        }
+    </script>
+</body>
+</html>
