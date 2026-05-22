@@ -1,0 +1,85 @@
+﻿@model WebBanHang.Models.Product
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<div class="container my-5" style="max-width: 800px;">
+    <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+        <h2 class="fw-bold text-dark mb-0">Thêm Sản Phẩm Mới</h2>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-body p-4 p-md-5">
+            <form asp-action="Add" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="All" class="text-danger mb-4 small fw-medium"></div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Name" class="form-label fw-semibold text-secondary small text-uppercase mb-2"></label>
+                    <input asp-for="Name" class="form-control form-control-lg fs-6 rounded-2" placeholder="Nhập tên sản phẩm" />
+                    <span asp-validation-for="Name" class="text-danger small mt-1 d-block"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label asp-for="Price" class="form-label fw-semibold text-secondary small text-uppercase mb-2"></label>
+                            <div class="input-group">
+                                <input asp-for="Price" class="form-control form-control-lg fs-6 rounded-start-2" placeholder="0.00" />
+                                <span class="input-group-text bg-light text-muted fs-6 rounded-end-2">đ</span>
+                            </div>
+                            <span asp-validation-for="Price" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label asp-for="CategoryId" class="form-label fw-semibold text-secondary small text-uppercase mb-2">Danh mục</label>
+                            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select form-select-lg fs-6 rounded-2"></select>
+                            <span asp-validation-for="CategoryId" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Description" class="form-label fw-semibold text-secondary small text-uppercase mb-2"></label>
+                    <textarea asp-for="Description" class="form-control rounded-2" rows="4" placeholder="Mô tả ngắn gọn về sản phẩm..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger small mt-1 d-block"></span>
+                </div>
+
+                <hr class="text-muted my-4" />
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label class="form-label fw-semibold text-secondary small text-uppercase mb-2">Ảnh đại diện</label>
+                            <input type="file" name="imageUrl" class="form-control rounded-2" accept="image/*" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label class="form-label fw-semibold text-secondary small text-uppercase mb-2">Các ảnh phụ liên quan</label>
+                            <input type="file" name="imageUrls" class="form-control rounded-2" accept="image/*" multiple />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end gap-2 mt-4 border-top pt-4">
+                    <button type="submit" class="btn btn-primary btn-lg px-5 fs-6 fw-semibold rounded-2 shadow-sm">
+                        Lưu sản phẩm
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-control:focus, .form-select:focus {
+        border-color: #86b7fe;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.08);
+    }
+
+    .form-label {
+        letter-spacing: 0.5px;
+    }
+</style>
