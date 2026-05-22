@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Trang Chủ - Hệ Thống Quản Trị Hệ Thống";
+}
+
+<!-- Hero Section Hoành Tráng -->
+<div class="p-5 mb-5 bg-light rounded-3 border shadow-sm position-relative overflow-hidden" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <div class="container-fluid py-5 text-center text-md-start position-relative" style="z-index: 2;">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <span class="badge bg-primary px-3 py-2 rounded-pill mb-3 animate__animated animate__fadeInDown">Chính Thức Ra Mắt</span>
+                <h1 class="display-3 fw-bold text-dark mb-3">Chào Mừng Đến Với Hệ Thống Nền Tảng Thế Hệ Mới</h1>
+                <p class="col-md-10 fs-4 text-muted mb-4">
+                    Trải nghiệm giải pháp tối ưu hóa hiệu năng, bảo mật toàn diện và khả năng mở rộng không giới hạn được xây dựng trên nền tảng công nghệ tiên tiến nhất.
+                </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="#features" class="btn btn-primary btn-lg px-4 me-md-2 shadow-sm fw-bold">Khám phá ngay</a>
+                    <a href="https://learn.microsoft.com/aspnet/core" target="_blank" class="btn btn-outline-secondary btn-lg px-4 fw-bold">Tài liệu ASP.NET Core</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block text-center">
+                <!-- Icon hoặc Hình ảnh minh họa lớn -->
+                <i class="bi bi-cpu-fill text-primary" style="font-size: 10rem; opacity: 0.15; position: absolute; right: 5%; top: 15%;"></i>
+                <div class="p-5 bg-white rounded-circle shadow-lg d-inline-block border border-5 border-light animate__animated animate__pulse animate__infinite">
+                    <i class="bi bi-rocket-takeoff-fill text-primary" style="font-size: 5rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Thống kê nhanh / Chỉ số ấn tượng -->
+<div class="row text-center g-4 mb-5">
+    <div class="col-6 col-lg-3">
+        <div class="p-4 bg-white border rounded-3 shadow-sm h-100 border-top border-primary border-3">
+            <div class="fs-1 fw-bold text-dark mb-1">99.9%</div>
+            <div class="text-uppercase fw-semibold text-muted small">Thời Gian Hoạt Động (Uptime)</div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="p-4 bg-white border rounded-3 shadow-sm h-100 border-top border-success border-3">
+            <div class="fs-1 fw-bold text-dark mb-1">&lt; 100ms</div>
+            <div class="text-uppercase fw-semibold text-muted small">Tốc Độ Phản Hồi</div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="p-4 bg-white border rounded-3 shadow-sm h-100 border-top border-warning border-3">
+            <div class="fs-1 fw-bold text-dark mb-1">AES-256</div>
+            <div class="text-uppercase fw-semibold text-muted small">Tiêu Chuẩn Mã Hóa</div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="p-4 bg-white border rounded-3 shadow-sm h-100 border-top border-info border-3">
+            <div class="fs-1 fw-bold text-dark mb-1">RESTful</div>
+            <div class="text-uppercase fw-semibold text-muted small">Kiến Trúc Hệ Thống</div>
+        </div>
+    </div>
+</div>
+
+<!-- Section Tính Năng Hệ Thống -->
+<div id="features" class="container py-4 mb-5">
+    <h2 class="pb-2 border-bottom text-center mb-5 fw-bold text-dark text-uppercase tracking-wide">Tính Năng Nổi Bật</h2>
+
+    <div class="row g-4 py-2 row-cols-1 row-cols-lg-3">
+        <!-- Tính năng 1 -->
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-primary bg-gradient text-white fs-2 mb-3 rounded-3 shadow p-3">
+                <i class="bi bi-shield-check"></i>
+            </div>
+            <h3 class="fs-4 fw-bold mb-2 text-dark">Bảo Mật Đa Tầng</h3>
+            <p class="text-muted">Tích hợp cơ chế xác thực mạnh mẽ, mã hóa đầu cuối và hệ thống xác minh OTP tối tân giúp bảo vệ toàn vẹn dữ liệu người dùng tuyệt đối.</p>
+        </div>
+
+        <!-- Tính năng 2 -->
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-success bg-gradient text-white fs-2 mb-3 rounded-3 shadow p-3">
+                <i class="bi bi-lightning-charge"></i>
+            </div>
+            <h3 class="fs-4 fw-bold mb-2 text-dark">Tối Ưu Hiệu Năng</h3>
+            <p class="text-muted">Vận hành mượt mà nhờ kiến trúc biên dịch ngược, tối ưu hóa các câu lệnh truy vấn dữ liệu phức tạp mang lại trải nghiệm không độ trễ.</p>
+        </div>
+
+        <!-- Tính năng 3 -->
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-info bg-gradient text-white fs-2 mb-3 rounded-3 shadow p-3">
+                <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h3 class="fs-4 fw-bold mb-2 text-dark">Báo Cáo Thời Gian Thực</h3>
+            <p class="text-muted">Hệ thống dashboard trực quan hiển thị số liệu phân tích chính xác từng giây, hỗ trợ tối đa quy trình đưa ra quyết định quản trị.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Nền Tảng Công Nghệ -->
+<div class="bg-dark text-secondary px-4 py-5 text-center rounded-3 shadow">
+    <div class="py-4">
+        <h2 class="display-6 fw-bold text-white mb-3">Phát Triển Trên Nền Tảng Mạnh Mẽ</h2>
+        <div class="col-lg-6 mx-auto">
+            <p class="fs-5 mb-4">Ứng dụng được xây dựng trên nền **ASP.NET Core**, tận dụng sức mạnh của kiến trúc MVC/Razor Pages, mang lại tốc độ thực thi vượt trội và khả năng bảo mật cấp doanh nghiệp.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <span class="badge bg-secondary p-2 px-3 fs-6">.NET Core</span>
+                <span class="badge bg-secondary p-2 px-3 fs-6">C# Language</span>
+                <span class="badge bg-secondary p-2 px-3 fs-6">Bootstrap 5</span>
+                <span class="badge bg-secondary p-2 px-3 fs-6">SQL Server</span>
+            </div>
+        </div>
+    </div>
+</div>
