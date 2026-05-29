@@ -1,19 +1,131 @@
 ﻿@model WebBanHang.Models.Product
 
-<h2>Product Details</h2>
+@{
+    ViewData["Title"] = "Chi Tiết Sản Phẩm";
+}
 
-<div>
-    <h4>Name: @Model.Name</h4>
-    <h4>Price: @Model.Price</h4>
-    <h4>Description: @Model.Description</h4>
+<div class="container my-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none text-muted">Sản phẩm</a></li>
+            <li class="breadcrumb-item active text-dark fw-medium" aria-current="page">@Model.Name</li>
+        </ol>
+    </nav>
 
-    <img src="@Model.ImageUrl" alt="Product Image" style="width: 300px; height: auto;" />
+    <div class="card border-0 shadow-sm rounded-3 overflow-hidden bg-white">
+        <div class="card-body p-4 p-lg-5">
+            <div class="row g-4 g-lg-5">
 
-    @if (Model.ImageUrls != null)
-    {
-        foreach (var imageUrl in Model.ImageUrls)
-        {
-            <img src="@imageUrl" alt="Product Image" style="width: 300px; height: auto;" />
-        }
-    }
+                <div class="col-md-6 col-lg-5">
+                    <div class="position-relative d-flex align-items-center justify-content-center border rounded-3 p-3 bg-light mb-3" style="min-height: 380px;">
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <img id="mainProductImage" src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded-2" style="max-height: 350px; object-fit: contain; transition: all 0.3s ease;" />
+                        }
+                        else
+                        {
+                            <img id="mainProductImage" src="/images/default.jpg" alt="No Image" class="img-fluid rounded-2" style="max-height: 350px; object-fit: contain;" />
+                        }
+                    </div>
+
+                    @if (Model.Images != null && Model.Images.Any())
+                    {
+                        <div class="d-flex flex-wrap gap-2 justify-content-start align-items-center mt-2">
+                            <img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "/images/default.jpg" : Model.ImageUrl)"
+                                 class="img-thumbnail thumb-img active-thumb border-primary border-2"
+                                 style="width: 75px; height: 60px; object-fit: cover; cursor: pointer; transition: all 0.2s;"
+                                 onclick="changeImage(this.src, this)" />
+
+                            @foreach (var img in Model.Images)
+                            {
+                                <img src="@img.Url"
+                                     alt="Detail Image"
+                                     class="img-thumbnail thumb-img border-1"
+                                     style="width: 75px; height: 60px; object-fit: cover; cursor: pointer; opacity: 0.7; transition: all 0.2s;"
+                                     onclick="changeImage(this.src, this)" />
+                            }
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-6 col-lg-7 d-flex flex-column justify-content-between">
+                    <div>
+                        <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle px-3 py-2 rounded-pill fs-7 mb-3">
+                            <i class="bi bi-tag-fill me-1"></i> @(Model.Category?.Name ?? "Chưa phân loại")
+                        </span>
+
+                        <h1 class="fw-bold text-dark display-6 mb-3">@Model.Name</h1>
+
+                        <div class="bg-light rounded-3 p-3 mb-4 border-start border-4 border-primary">
+                            <small class="text-muted d-block text-uppercase fw-semibold tracking-wider font-monospace fs-7 mb-1">Giá bán hiện tại</small>
+                            <span class="text-danger fw-black display-5">@Model.Price.ToString("#,##0")<span class="fs-4 ms-1">đ</span></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-2">Mô tả sản phẩm</h5>
+                            <p class="text-muted lh-base" style="white-space: pre-line;">
+                                @(string.IsNullOrEmpty(Model.Description) ? "Sản phẩm hiện chưa có bài viết mô tả chi tiết từ nhà cung cấp." : Model.Description)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 pt-4 border-top">
+                        <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-primary btn-lg px-4 fs-6 fw-semibold rounded-2 shadow-sm d-inline-flex align-items-center">
+                            <i class="bi bi-pencil-square me-2"></i> Chỉnh Sửa
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4 fs-6 fw-semibold rounded-2">
+                            <i class="bi bi-arrow-left me-1"></i> Quay lại Danh sách
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
+
+<style>
+    .fw-black {
+        font-weight: 800;
+    }
+
+    .fs-7 {
+        font-size: 0.8rem;
+    }
+
+    .tracking-wider {
+        letter-spacing: 0.5px;
+    }
+
+    .thumb-img:hover {
+        opacity: 1 !important;
+        border-color: #0d6efd !important;
+    }
+
+    .active-thumb {
+        opacity: 1 !important;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        function changeImage(src, element) {
+            // Đổi thuộc tính src của ảnh chính
+            const mainImg = document.getElementById('mainProductImage');
+            mainImg.style.opacity = '0.3';
+
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 150);
+
+            // Cập nhật viền border xanh cho ảnh nhỏ đang được chọn
+            document.querySelectorAll('.thumb-img').forEach(thumb => {
+                thumb.classList.remove('active-thumb', 'border-primary', 'border-2');
+                thumb.classList.add('border-1');
+            });
+            element.classList.add('active-thumb', 'border-primary', 'border-2');
+            element.classList.remove('border-1');
+        }
+    </script>
+}

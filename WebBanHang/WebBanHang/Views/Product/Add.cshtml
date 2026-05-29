@@ -4,12 +4,12 @@
     ViewData["Title"] = "Add Product";
 }
 
-<div class="container my-5" style="max-width: 800px;">
+<div class="container my-5" style="max-width: 850px;">
     <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
         <h2 class="fw-bold text-dark mb-0">Thêm Sản Phẩm Mới</h2>
     </div>
 
-    <div class="card shadow-sm border-0 rounded-3">
+    <div class="card shadow-sm border-0 rounded-3 bg-white">
         <div class="card-body p-4 p-md-5">
             <form asp-action="Add" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="All" class="text-danger mb-4 small fw-medium"></div>
@@ -34,7 +34,9 @@
                     <div class="col-md-6">
                         <div class="form-group mb-4">
                             <label asp-for="CategoryId" class="form-label fw-semibold text-secondary small text-uppercase mb-2">Danh mục</label>
-                            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select form-select-lg fs-6 rounded-2"></select>
+                            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select form-select-lg fs-6 rounded-2">
+                                <option value="">-- Chọn danh mục --</option>
+                            </select>
                             <span asp-validation-for="CategoryId" class="text-danger small mt-1 d-block"></span>
                         </div>
                     </div>
@@ -51,19 +53,33 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group mb-4">
-                            <label class="form-label fw-semibold text-secondary small text-uppercase mb-2">Ảnh đại diện</label>
-                            <input type="file" name="imageUrl" class="form-control rounded-2" accept="image/*" />
+                            <label class="form-label fw-semibold text-secondary small text-uppercase mb-2">Ảnh đại diện chính</label>
+                            <input type="file" name="imageUrl" id="mainImageInput" class="form-control rounded-2" accept="image/*" />
+
+                            <div class="mt-3 text-center border rounded-3 p-2 bg-light d-none" id="mainImagePreviewContainer">
+                                <small class="text-muted d-block mb-1 fs-7">Xem trước ảnh chính</small>
+                                <img id="mainImagePreview" src="#" alt="Main Preview" class="img-fluid rounded-2" style="max-height: 150px; object-fit: contain;" />
+                            </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-group mb-4">
-                            <label class="form-label fw-semibold text-secondary small text-uppercase mb-2">Các ảnh phụ liên quan</label>
-                            <input type="file" name="imageUrls" class="form-control rounded-2" accept="image/*" multiple />
+                            <label class="form-label fw-semibold text-secondary small text-uppercase mb-2">Các ảnh phụ chi tiết</label>
+                            <input type="file" name="detailImages" id="detailImagesInput" class="form-control rounded-2" accept="image/*" multiple />
+
+                            <div class="mt-3 border rounded-3 p-2 bg-light d-none" id="detailImagesPreviewContainer">
+                                <small class="text-muted d-block mb-2 fs-7 text-center">Xem trước ảnh chi tiết</small>
+                                <div id="detailImagesPreviewWrapper" class="d-flex flex-wrap gap-2 justify-content-center"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-end gap-2 mt-4 border-top pt-4">
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4 fs-6 fw-semibold rounded-2">
+                        Hủy bỏ
+                    </a>
                     <button type="submit" class="btn btn-primary btn-lg px-5 fs-6 fw-semibold rounded-2 shadow-sm">
                         Lưu sản phẩm
                     </button>
@@ -82,4 +98,58 @@
     .form-label {
         letter-spacing: 0.5px;
     }
+
+    .fs-7 {
+        font-size: 0.8rem;
+    }
 </style>
+
+@section Scripts {
+    <script>
+        // 1. Xử lý hiển thị preview ảnh đại diện chính
+        document.getElementById('mainImageInput').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            const container = document.getElementById('mainImagePreviewContainer');
+            const preview = document.getElementById('mainImagePreview');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    container.classList.remove('d-none');
+                }
+                reader.readAsDataURL(file);
+            } else {
+                container.classList.add('d-none');
+            }
+        });
+
+        // 2. Xử lý hiển thị preview cho nhiều ảnh phụ cùng lúc
+        document.getElementById('detailImagesInput').addEventListener('change', function (event) {
+            const files = event.target.files;
+            const container = document.getElementById('detailImagesPreviewContainer');
+            const wrapper = document.getElementById('detailImagesPreviewWrapper');
+
+            wrapper.innerHTML = ''; // Xóa sạch preview cũ trước khi nạp đợt ảnh mới
+
+            if (files.length > 0) {
+                container.classList.remove('d-none');
+                Array.from(files).forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'img-thumbnail';
+                        img.style.width = '65px';
+                        img.style.height = '50px';
+                        img.style.objectFit = 'cover';
+                        wrapper.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                });
+            } else {
+                container.classList.add('d-none');
+            }
+        });
+    </script>
+}

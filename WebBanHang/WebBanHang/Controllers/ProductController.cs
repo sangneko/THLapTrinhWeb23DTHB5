@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
-using System;
 using System.IO;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebBanHang.Models;
 using WebBanHang.Models.Repositories;
@@ -19,15 +17,17 @@ public class ProductController : Controller
         _categoryRepository = categoryRepository;
     }
 
-    public IActionResult Index()
+    // Hiển thị danh sách sản phẩm
+    public async Task<IActionResult> Index()
     {
-        var products = _productRepository.GetAll();
+        var products = await _productRepository.GetAllAsync();
         return View(products);
     }
 
-    public IActionResult Display(int id)
+    // Hiển thị thông tin chi tiết sản phẩm
+    public async Task<IActionResult> Display(int id)
     {
-        var product = _productRepository.GetById(id);
+        var product = await _productRepository.GetByIdAsync(id);
         if (product == null)
         {
             return NotFound();
@@ -35,15 +35,17 @@ public class ProductController : Controller
         return View(product);
     }
 
-    public IActionResult Add()
+    // Hiển thị form thêm sản phẩm mới
+    public async Task<IActionResult> Add()
     {
-        var categories = _categoryRepository.GetAllCategories();
+        var categories = await _categoryRepository.GetAllAsync();
         ViewBag.Categories = new SelectList(categories, "Id", "Name");
         return View();
     }
 
+    // Xử lý thêm sản phẩm mới
     [HttpPost]
-    public async Task<IActionResult> Add(Product product, IFormFile imageUrl, List<IFormFile> imageUrls)
+    public async Task<IActionResult> Add(Product product, IFormFile imageUrl)
     {
         if (ModelState.IsValid)
         {
@@ -52,74 +54,79 @@ public class ProductController : Controller
                 product.ImageUrl = await SaveImage(imageUrl);
             }
 
-            if (imageUrls != null)
-            {
-                product.ImageUrls = new List<string>();
-                foreach (var file in imageUrls)
-                {
-                    if (file.Length > 0)
-                    {
-                        product.ImageUrls.Add(await SaveImage(file));
-                    }
-                }
-            }
-
-            _productRepository.Add(product);
-            return RedirectToAction("Index");
+            await _productRepository.AddAsync(product);
+            return RedirectToAction(nameof(Index));
         }
 
-        var categories = _categoryRepository.GetAllCategories();
-        ViewBag.Categories = new SelectList(categories, "Id", "Name");
+        var categories = await _categoryRepository.GetAllAsync();
+        ViewBag.Categories = new SelectList(categories, "Id", "Name", product.CategoryId); // Thêm thông tin ID được chọn
         return View(product);
     }
 
-    public IActionResult Update(int id)
+    // Hiển thị form cập nhật sản phẩm
+    public async Task<IActionResult> Update(int id)
     {
-        var product = _productRepository.GetById(id);
+        var product = await _productRepository.GetByIdAsync(id);
         if (product == null)
         {
             return NotFound();
         }
 
-        var categories = _categoryRepository.GetAllCategories();
+        var categories = await _categoryRepository.GetAllAsync();
         ViewBag.Categories = new SelectList(categories, "Id", "Name", product.CategoryId);
         return View(product);
     }
 
+    // Xử lý cập nhật sản phẩm
     [HttpPost]
-    public async Task<IActionResult> Update(Product product, IFormFile imageUrl, List<IFormFile> imageUrls)
+    public async Task<IActionResult> Update(int id, Product product, IFormFile imageUrl)
     {
+        ModelState.Remove("imageUrl"); // Chữ 'i' thường khớp với tham số nhận từ form [cite: 395, 397]
+
+        if (id != product.Id)
+        {
+            return NotFound();
+        }
+
         if (ModelState.IsValid)
         {
+            var existingProduct = await _productRepository.GetByIdAsync(id);
+            if (existingProduct == null)
+            {
+                return NotFound();
+            }
+
+            // Xử lý hình ảnh thông minh
             if (imageUrl != null && imageUrl.Length > 0)
             {
                 product.ImageUrl = await SaveImage(imageUrl);
             }
-
-            if (imageUrls != null)
+            else
             {
-                product.ImageUrls = new List<string>();
-                foreach (var file in imageUrls)
-                {
-                    if (file.Length > 0)
-                    {
-                        product.ImageUrls.Add(await SaveImage(file));
-                    }
-                }
+                product.ImageUrl = existingProduct.ImageUrl; // Giữ lại ảnh cũ nếu không up ảnh mới
             }
 
-            _productRepository.Update(product);
-            return RedirectToAction("Index");
+            // Đồng bộ dữ liệu
+            existingProduct.Name = product.Name;
+            existingProduct.Price = product.Price;
+            existingProduct.Description = product.Description;
+            existingProduct.CategoryId = product.CategoryId;
+            existingProduct.ImageUrl = product.ImageUrl;
+
+            await _productRepository.UpdateAsync(existingProduct);
+            return RedirectToAction(nameof(Index));
         }
 
-        var categories = _categoryRepository.GetAllCategories();
+        // Fix lỗi nạp lại danh mục nếu form lỗi dữ liệu đầu vào
+        var categories = await _categoryRepository.GetAllAsync();
         ViewBag.Categories = new SelectList(categories, "Id", "Name", product.CategoryId);
         return View(product);
     }
 
-    public IActionResult Delete(int id)
+    // Hiển thị form xác nhận xóa sản phẩm
+    public async Task<IActionResult> Delete(int id)
     {
-        var product = _productRepository.GetById(id);
+        var product = await _productRepository.GetByIdAsync(id);
         if (product == null)
         {
             return NotFound();
@@ -127,13 +134,15 @@ public class ProductController : Controller
         return View(product);
     }
 
+    // Xử lý xóa sản phẩm
     [HttpPost, ActionName("DeleteConfirmed")]
-    public IActionResult DeleteConfirmed(int id)
+    public async Task<IActionResult> DeleteConfirmed(int id)
     {
-        _productRepository.Delete(id);
-        return RedirectToAction("Index");
+        await _productRepository.DeleteAsync(id);
+        return RedirectToAction(nameof(Index));
     }
 
+    // Hàm lưu hình ảnh
     private async Task<string> SaveImage(IFormFile image)
     {
         var savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", image.FileName);
