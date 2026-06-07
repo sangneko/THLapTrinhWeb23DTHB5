@@ -1,0 +1,29 @@
+﻿@model WebBanHang.Models.Product
+
+@{
+    ViewData["Title"] = "Xác Nhận Xóa Sản Phẩm";
+}
+
+<div class="container my-5" style="max-width: 600px;">
+    <div class="card shadow border-0 rounded-4 p-4 border-top border-danger border-4">
+        <h4 class="fw-bold text-danger mb-3"><i class="bi bi-exclamation-triangle-fill me-2"></i>Cảnh Báo Xóa Sản Phẩm!</h4>
+        <p class="text-muted">Bạn có chắc chắn muốn loại bỏ vĩnh viễn sản phẩm này ra khỏi hệ thống TECH SHOP không?</p>
+
+        <div class="d-flex align-items-center gap-3 bg-light p-3 rounded-3 mb-4">
+            <img src="@Model.ImageUrl" class="img-thumbnail rounded-3" style="width: 80px; height: 80px; object-fit: cover;" />
+            <div>
+                <h5 class="fw-bold text-dark mb-1">@Model.Name</h5>
+                <span class="badge bg-secondary mb-1">Danh mục: @Model.Category?.Name</span>
+                <div class="text-danger fw-bold">Giá: @Model.Price.ToString("#,##0") đ</div>
+            </div>
+        </div>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-flex gap-2 justify-content-end">
+                <button type="submit" class="btn btn-danger rounded-pill px-4 fw-bold">Xác Nhận Xóa</button>
+                <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4">Hủy Bỏ</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\hinhnen4-6.jpg",
+      "PackagePath": "staticwebassets\\images\\hinhnen4-6.jpg"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\qms-bmh1.bmp",
+      "PackagePath": "staticwebassets\\images\\qms-bmh1.bmp"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\qms-bmh4.bmp",
+      "PackagePath": "staticwebassets\\images\\qms-bmh4.bmp"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\qms-bmh6.bmp",
+      "PackagePath": "staticwebassets\\images\\qms-bmh6.bmp"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\tải xuống (1).jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống (1).jfif"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\tải xuống (2).jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống (2).jfif"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\tải xuống (4).jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống (4).jfif"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\tải xuống.jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống.jfif"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebBanHang.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebBanHang.props",
+      "PackagePath": "build\\WebBanHang.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebBanHang.props",
+      "PackagePath": "buildMultiTargeting\\WebBanHang.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebBanHang.props",
+      "PackagePath": "buildTransitive\\WebBanHang.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
