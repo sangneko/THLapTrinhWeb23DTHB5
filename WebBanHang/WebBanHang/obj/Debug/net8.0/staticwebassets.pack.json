@@ -1,0 +1,309 @@
+{
+  "Files": [
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\WebBanHang.bundle.scp.css",
+      "PackagePath": "staticwebassets\\WebBanHang.bundle.scp.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\hinhnen16-9.jpg",
+      "PackagePath": "staticwebassets\\images\\hinhnen16-9.jpg"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\hinhnen16-99.jpg",
+      "PackagePath": "staticwebassets\\images\\hinhnen16-99.jpg"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\hinhnen16-999.jpg",
+      "PackagePath": "staticwebassets\\images\\hinhnen16-999.jpg"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\hinhnen4-6.jpg",
+      "PackagePath": "staticwebassets\\images\\hinhnen4-6.jpg"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\qms-bmh1.bmp",
+      "PackagePath": "staticwebassets\\images\\qms-bmh1.bmp"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\qms-bmh4.bmp",
+      "PackagePath": "staticwebassets\\images\\qms-bmh4.bmp"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\qms-bmh6.bmp",
+      "PackagePath": "staticwebassets\\images\\qms-bmh6.bmp"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\tải xuống (1).jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống (1).jfif"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\tải xuống (2).jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống (2).jfif"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\tải xuống (4).jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống (4).jfif"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\images\\tải xuống.jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống.jfif"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "M:\\THLapTrinhWeb23DTHB5\\WebBanHang\\WebBanHang\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebBanHang.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebBanHang.props",
+      "PackagePath": "build\\WebBanHang.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebBanHang.props",
+      "PackagePath": "buildMultiTargeting\\WebBanHang.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebBanHang.props",
+      "PackagePath": "buildTransitive\\WebBanHang.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
