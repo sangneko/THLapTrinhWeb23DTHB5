@@ -1,0 +1,129 @@
+﻿@model WebBanHang.Models.Product
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Chỉnh Sửa Sản Phẩm";
+}
+
+<div class="container mt-4">
+    <h2>Edit Product</h2>
+    <hr />
+
+    <form asp-action="Update" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="row">
+            <div class="col-md-7">
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label">Tên sản phẩm</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Price" class="form-label">Giá</label>
+                    <input asp-for="Price" type="number" step="0.01" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Description" class="form-label">Mô tả</label>
+                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="CategoryId" class="form-label">Category</label>
+                    <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label fw-bold">Thay đổi ảnh đại diện chính</label>
+                    <input type="file" name="imageUrl" class="form-control" id="imageInput" accept="image/*" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label fw-bold">Tải lên các ảnh phụ chi tiết mới</label>
+                    <input type="file" name="detailImages" class="form-control" id="detailImagesInput" accept="image/*" multiple />
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary me-2">Update</button>
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="text-center bg-light p-3 border rounded mb-3">
+                    <label class="form-label d-block fw-bold">Hình ảnh hiển thị chính</label>
+                    <img src="@Model.ImageUrl" alt="Product Image" style="max-width: 250px; height: auto;" id="previewImage" class="img-thumbnail mt-2" [cite: 665, 666] />
+                </div>
+
+                <div class="bg-light p-3 border rounded">
+                    <label class="form-label d-block fw-bold text-center">Các hình ảnh phụ chi tiết</label>
+
+                    <div id="detailImagesWrapper" class="d-flex flex-wrap gap-2 justify-content-center mt-2">
+                        @if (Model.Images != null && Model.Images.Any())
+                        {
+                            foreach (var img in Model.Images)
+                            {
+                                <img src="@img.Url" alt="Current Detail Image" class="img-thumbnail" style="width: 75px; height: 55px; object-fit: cover;" />
+                            }
+                        }
+                        else
+                        {
+                            <span id="noDetailText" class="text-muted small">Chưa có ảnh phụ chi tiết nào.</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // JavaScript 1: Xử lý xem trước ảnh đại diện chính khi có sự thay đổi file (Giữ nguyên của bạn) [cite: 671, 672]
+        document.getElementById('imageInput').addEventListener('change', function (event) {
+            const file = event.target.files[0];[cite: 673]
+            if (file) {
+                [cite: 674]
+                const reader = new FileReader();[cite: 675]
+                reader.onload = function (e) {
+                    [cite: 676]
+                    const img = document.getElementById("previewImage");[cite: 677]
+                    img.src = e.target.result;[cite: 678]
+                };[cite: 680]
+                reader.readAsDataURL(file);[cite: 679]
+            }
+        });
+
+        // JavaScript 2: THÊM XỬ LÝ ĐỔI ẢNH ĐỘNG KHI CHỌN NHIỀU ẢNH PHỤ MỚI CÙNG LÚC
+        document.getElementById('detailImagesInput').addEventListener('change', function (event) {
+            const files = event.target.files;
+            const wrapper = document.getElementById('detailImagesWrapper');
+
+            // Xóa nội dung hiển thị cũ (hoặc thông báo trống) để cập nhật ảnh preview mới
+            wrapper.innerHTML = '';
+
+            if (files.length > 0) {
+                Array.from(files).forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'img-thumbnail';
+                        img.style.width = '75px';
+                        img.style.height = '55px';
+                        img.style.objectFit = 'cover';
+                        wrapper.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            } else {
+                wrapper.innerHTML = '<span class="text-muted small">Chưa có ảnh phụ chi tiết nào.</span>';
+            }
+        });
+    </script>
+}

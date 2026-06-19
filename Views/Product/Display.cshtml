@@ -1,0 +1,172 @@
+﻿@model WebBanHang.Models.Product
+
+@{
+    ViewData["Title"] = Model.Name + " - Chi Tiết Sản Phẩm";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<div class="container my-5 animate__animated animate__fadeIn">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb bg-transparent p-0 m-0">
+            <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none text-muted hover-warning-text"><i class="bi bi-house-door-fill me-1"></i>Sản phẩm</a></li>
+            <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">@Model.Name</li>
+        </ol>
+    </nav>
+
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+        <div class="card-body p-4 p-lg-5">
+            <div class="row g-4 g-lg-5">
+
+                <div class="col-md-6 col-lg-5">
+                    <div class="position-relative d-flex align-items-center justify-content-center border border-light-subtle rounded-4 p-4 bg-light mb-3 product-image-holder" style="min-height: 400px; box-shadow: inset 0 0 20px rgba(0,0,0,0.02);">
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <img id="mainProductImage" src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded-3 img-main-effect" style="max-height: 360px; object-fit: contain; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);" />
+                        }
+                        else
+                        {
+                            <img id="mainProductImage" src="/images/default.jpg" alt="No Image" class="img-fluid rounded-3" style="max-height: 360px; object-fit: contain;" />
+                        }
+                    </div>
+
+                    @if (Model.Images != null && Model.Images.Any())
+                    {
+                        <div class="d-flex flex-wrap gap-2 justify-content-start align-items-center mt-3">
+                            <img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "/images/default.jpg" : Model.ImageUrl)"
+                                 class="img-thumbnail thumb-img active-thumb border-warning border-2 shadow-sm"
+                                 style="width: 80px; height: 65px; object-fit: cover; cursor: pointer; border-radius: 8px;"
+                                 onclick="changeImage(this.src, this)" />
+
+                            @foreach (var img in Model.Images)
+                            {
+                                <img src="@img.Url"
+                                     alt="Detail Image"
+                                     class="img-thumbnail thumb-img border-1"
+                                     style="width: 80px; height: 65px; object-fit: cover; cursor: pointer; opacity: 0.6; border-radius: 8px;"
+                                     onclick="changeImage(this.src, this)" />
+                            }
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-6 col-lg-7 d-flex flex-column justify-content-between">
+                    <div>
+                        <span class="badge bg-dark bg-opacity-10 text-dark border border-dark-subtle px-3 py-2 rounded-pill fs-7 mb-3 fw-semibold">
+                            <i class="bi bi-tag-fill me-1 text-warning"></i> @(Model.Category?.Name ?? "Thiết bị công nghệ")
+                        </span>
+
+                        <h1 class="fw-black text-dark display-6 mb-3 text-uppercase tracking-tight" style="font-size: 2rem; line-height: 1.3;">@Model.Name</h1>
+
+                        <div class="rounded-4 p-4 mb-4 border-start border-5 border-warning layout-price-block" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                            <small class="text-muted d-block text-uppercase fw-bold tracking-wider font-monospace fs-7 mb-1">Giá bán độc quyền TechShop</small>
+                            <span class="text-danger fw-black display-5">@Model.Price.ToString("#,##0")<span class="fs-4 ms-1 fw-normal">đ</span></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                                <span class="bg-warning rounded-pill" style="width: 4px; height: 18px;"></span>
+                                Mô tả chi tiết thiết bị
+                            </h5>
+                            <p class="text-secondary lh-lg fs-6 bg-light p-3 rounded-3" style="white-space: pre-line; text-align: justify;">
+                                @(string.IsNullOrEmpty(Model.Description) ? "Sản phẩm công nghệ hiện chưa có bài viết mô tả thông số chi tiết từ nhà phân phối TechShop." : Model.Description)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 pt-4 border-top mt-4 w-100">
+
+                        @* 🔐 ĐÃ SỬA: Chỉ tài khoản đã đăng nhập hệ thống và có quyền "Admin" mới hiển thị nút sửa *@
+                        @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-warning btn-md px-4 fs-6 fw-bold rounded-pill text-dark shadow-sm d-inline-flex align-items-center gap-2 btn-admin-edit">
+                                <i class="bi bi-pencil-square"></i> CHỈNH SỬA THÔNG TIN
+                            </a>
+                        }
+
+                        <a asp-action="Index" class="btn btn-outline-dark btn-md px-4 fs-6 fw-semibold rounded-pill d-inline-flex align-items-center gap-1">
+                            <i class="bi bi-arrow-left"></i> Quay lại Danh sách
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .fw-black {
+        font-weight: 850 !important;
+    }
+
+    .fs-7 {
+        font-size: 0.78rem;
+    }
+
+    .tracking-wider {
+        letter-spacing: 0.8px;
+    }
+
+    .tracking-tight {
+        letter-spacing: -0.5px;
+    }
+
+    .hover-warning-text:hover {
+        color: #ffc107 !important;
+    }
+
+    .product-image-holder:hover .img-main-effect {
+        transform: scale(1.04);
+    }
+
+    .thumb-img {
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+        .thumb-img:hover {
+            opacity: 1 !important;
+            border-color: #ffc107 !important;
+        }
+
+    .active-thumb {
+        opacity: 1 !important;
+    }
+
+    .btn-admin-edit {
+        transition: all 0.2s ease;
+    }
+
+        .btn-admin-edit:hover {
+            background-color: #e68a00 !important;
+            border-color: #e68a00 !important;
+            transform: translateY(-2px);
+        }
+</style>
+
+@section Scripts {
+    <script>
+        function changeImage(src, element) {
+            const mainImg = document.getElementById('mainProductImage');
+
+            mainImg.style.opacity = '0.2';
+            mainImg.style.transform = 'scale(0.98)';
+
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+                mainImg.style.transform = 'scale(1)';
+            }, 120);
+
+            document.querySelectorAll('.thumb-img').forEach(thumb => {
+                thumb.classList.remove('active-thumb', 'border-warning', 'border-2', 'shadow-sm');
+                thumb.classList.add('border-1');
+                thumb.style.opacity = '0.6';
+            });
+
+            element.classList.add('active-thumb', 'border-warning', 'border-2', 'shadow-sm');
+            element.classList.remove('border-1');
+            element.style.opacity = '1';
+        }
+    </script>
+}

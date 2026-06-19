@@ -1,0 +1,105 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Đăng Ký Tài Khoản";
+}
+
+<div class="container my-5">
+    <div class="row g-4 justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow border-0 rounded-4">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-warning text-dark rounded-circle mb-3 shadow-sm" style="width: 60px; height: 60px;">
+                            <i class="bi bi-person-plus-fill fs-3"></i>
+                        </div>
+                        <h2 class="fw-bold text-dark mb-1">Tạo Tài Khoản</h2>
+                        <p class="text-muted small">Đăng ký thành viên để trải nghiệm mua sắm công nghệ tốt nhất</p>
+                    </div>
+
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger p-2 small border-0 rounded-3" role="alert"></div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.FullName" class="form-control rounded-3 border-secondary-subtle" placeholder="Nguyễn Văn A" />
+                            <label asp-for="Input.FullName" class="text-secondary"><i class="bi bi-person-fill me-1"></i> Họ và tên</label>
+                            <span asp-validation-for="Input.FullName" class="text-danger small mt-1 d-block"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Email" class="form-control rounded-3 border-secondary-subtle" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                            <label asp-for="Input.Email" class="text-secondary"><i class="bi bi-envelope me-1"></i> Địa chỉ Email</label>
+                            <span asp-validation-for="Input.Email" class="text-danger small mt-1 d-block"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Password" class="form-control rounded-3 border-secondary-subtle" autocomplete="new-password" aria-required="true" placeholder="password" />
+                            <label asp-for="Input.Password" class="text-secondary"><i class="bi bi-lock me-1"></i> Mật khẩu</label>
+                            <span asp-validation-for="Input.Password" class="text-danger small mt-1 d-block"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.ConfirmPassword" class="form-control rounded-3 border-secondary-subtle" autocomplete="new-password" aria-required="true" placeholder="password" />
+                            <label asp-for="Input.ConfirmPassword" class="text-secondary"><i class="bi bi-shield-check me-1"></i> Xác nhận mật khẩu</label>
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger small mt-1 d-block"></span>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select rounded-3 border-secondary-subtle">
+                                <option disabled selected>-- Chọn phân quyền truy cập --</option>
+                            </select>
+                            <label asp-for="Input.Role" class="text-secondary"><i class="bi bi-shield-lock-fill me-1"></i> Nhóm quyền thành viên</label>
+                        </div>
+
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-warning rounded-pill py-2 text-dark fw-bold shadow-sm transition-all hover-up mb-3">
+                            <i class="bi bi-check-circle-fill me-2"></i> ĐĂNG KÝ NGAY
+                        </button>
+
+                        <div class="text-center mt-3">
+                            <span class="small text-muted">Bạn đã có tài khoản? </span>
+                            <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" class="small text-warning fw-bold text-decoration-none">Đăng nhập tại đây</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-8 d-flex align-items-stretch">
+            <div class="card shadow-sm border-0 rounded-4 bg-dark text-white w-100">
+                <div class="card-body p-5 d-flex flex-column justify-content-center text-center">
+                    <h4 class="fw-bold mb-3 text-warning">Đăng nhập nhanh</h4>
+                    <p class="small text-white-50 mb-4">Sử dụng liên kết mạng xã hội của bạn để liên kết và tạo tài khoản nhanh chóng chỉ với một lượt click.</p>
+                    <hr class="border-secondary mb-4" />
+                    @{
+                        if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                        {
+                            <div>
+                                <div class="p-3 bg-secondary bg-opacity-20 rounded-3 text-white-50 small lh-base">
+                                    <i class="bi bi-info-circle text-warning fs-5 d-block mb-2"></i>
+                                    Hệ thống chưa cấu hình cổng xác thực bên thứ ba (Google/Facebook). Bạn vui lòng sử dụng biểu mẫu đăng ký thành viên chính thức.
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                <div class="d-grid gap-2">
+                                    @foreach (var provider in Model.ExternalLogins!)
+                                    {
+                                        <button type="submit" class="btn btn-outline-light rounded-pill py-2 fw-semibold" name="provider" value="@provider.Name" title="Đăng ký bằng tài khoản @provider.DisplayName">
+                                            <i class="bi bi-box-arrow-in-right me-2"></i> @provider.DisplayName
+                                        </button>
+                                    }
+                                </div>
+                            </form>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

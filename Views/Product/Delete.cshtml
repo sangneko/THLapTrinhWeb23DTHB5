@@ -1,0 +1,51 @@
+﻿@model WebBanHang.Models.Product
+
+@{
+    ViewData["Title"] = "Xác Nhận Xóa Sản Phẩm";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow border-0 rounded-3 overflow-hidden">
+                <div class="card-header bg-danger text-white text-center py-3">
+                    <h4 class="mb-0 fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Xác Nhận Xóa</h4>
+                </div>
+
+                <div class="card-body p-4">
+                    <p class="text-center text-muted fs-5 mb-4">
+                        Bạn có chắc chắn muốn xóa sản phẩm dưới đây không? Hành động này không thể hoàn tác.
+                    </p>
+
+                    <div class="bg-light rounded p-3 mb-4 border-start border-4 border-danger">
+                        <div class="mb-2">
+                            <small class="text-secondary d-block text-uppercase font-monospace fs-7">Tên Sản Phẩm</small>
+                            <span class="fw-bold text-dark fs-5">@Model.Name</span>
+                        </div>
+                        <div class="mb-2">
+                            <small class="text-secondary d-block text-uppercase font-monospace fs-7">Giá Bán</small>
+                            <span class="fw-bold text-danger fs-5">@Model.Price.ToString("#,##0") đ</span>
+                        </div>
+                        <div>
+                            <small class="text-secondary d-block text-uppercase font-monospace fs-7">Mô Tả</small>
+                            <span class="text-muted">@(string.IsNullOrEmpty(Model.Description) ? "Không có mô tả" : Model.Description)</span>
+                        </div>
+                    </div>
+
+                    <form asp-action="DeleteConfirmed" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger btn-lg shadow-sm fw-semibold">
+                                <i class="bi bi-trash3-fill"></i> Đồng Ý Xóa
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg fw-semibold mt-1">
+                                Hủy Bỏ & Quay Lại
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

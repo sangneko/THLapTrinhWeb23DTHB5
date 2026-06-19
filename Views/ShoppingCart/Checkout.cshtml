@@ -1,0 +1,33 @@
+﻿@model WebBanHang.Models.Order
+
+<div class="container mt-5" style="max-width: 600px;">
+    <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-header bg-dark text-white py-3 text-center">
+            <h3 class="mb-0 fw-bold text-uppercase"><i class="bi bi-credit-card-2-front-fill me-2 text-warning"></i>Thông Tin Đặt Hàng</h3>
+        </div>
+        <div class="card-body p-4">
+            <form asp-action="Checkout" method="post">
+                <div class="form-group mb-4">
+                    <label asp-for="ShippingAddress" class="form-label fw-semibold text-dark">Địa chỉ giao hàng</label>
+                    <input asp-for="ShippingAddress" class="form-control ps-3 rounded-pill border-secondary" placeholder="Nhập địa chỉ nhận hàng chi tiết..." required />
+                    <span asp-validation-for="ShippingAddress" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Notes" class="form-label fw-semibold text-dark">Ghi chú (Không bắt buộc)</label>
+                    <textarea asp-for="Notes" class="form-control ps-3 rounded-3 border-secondary" rows="4" placeholder="Nhập ghi chú về thời gian giao hàng, chỉ dẫn đường đi..."></textarea>
+                    <span asp-validation-for="Notes" class="text-danger small"></span>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-warning text-dark py-2.5 fs-5 fw-bold shadow rounded-pill">
+                        <i class="bi bi-box-seam-fill me-1"></i> Xác Nhận Đặt Hàng
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary py-2 rounded-pill">
+                        Quay lại giỏ hàng
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

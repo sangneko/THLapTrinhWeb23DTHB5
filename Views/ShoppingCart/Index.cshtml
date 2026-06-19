@@ -1,0 +1,77 @@
+﻿@model WebBanHang.Models.ShoppingCart
+
+<div class="container mt-5">
+    <h2 class="mb-4"><i class="bi bi-cart3"></i> Giỏ Hàng Của Bạn</h2>
+
+    @if (Model == null || !Model.Items.Any())
+    {
+        <div class="alert alert-warning text-center p-5 shadow-sm rounded">
+            <i class="bi bi-basket2 fs-1 d-block mb-3 text-secondary"></i>
+            <p class="fs-5 text-muted">Giỏ hàng của bạn đang trống!</p>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-dark mt-2 px-4 rounded-pill">
+                <i class="bi bi-arrow-left"></i> Quay lại mua sắm
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light text-uppercase fs-7 text-secondary">
+                                <tr>
+                                    <th scope="col" class="py-3 ps-4">Sản phẩm</th>
+                                    <th scope="col" class="py-3 text-center">Số lượng</th>
+                                    <th scope="col" class="py-3 text-end">Đơn giá</th>
+                                    <th scope="col" class="py-3 text-end">Thành tiền</th>
+                                    <th scope="col" class="py-3 text-center">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Items)
+                                {
+                                    <tr>
+                                        <td class="py-3 ps-4 fw-semibold text-dark">@item.Name</td>
+                                        <td class="py-3 text-center">
+                                            <span class="badge bg-secondary px-3 py-2 fs-6">@item.Quantity</span>
+                                        </td>
+                                        <td class="py-3 text-end text-muted">@item.Price.ToString("#,##0") đ</td>
+                                        <td class="py-3 text-end fw-bold text-dark">@((item.Price * item.Quantity).ToString("#,##0")) đ</td>
+                                        <td class="py-3 text-center">
+                                            <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" class="btn btn-sm btn-outline-danger px-3 rounded-pill">
+                                                <i class="bi bi-trash3-fill"></i> Xóa
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-0 rounded-3">
+                    <div class="card-header bg-dark text-white py-3 text-center">
+                        <h5 class="mb-0 fw-bold text-uppercase letter-spacing-1">Tóm tắt đơn hàng</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between mb-3 fs-5 border-bottom pb-2">
+                            <span class="text-secondary">Tạm tính:</span>
+                            <span class="fw-bold text-dark">@Model.Items.Sum(i => i.Price * i.Quantity).ToString("#,##0") đ</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4 fs-4 fw-bold">
+                            <span>Tổng cộng:</span>
+                            <span class="text-danger">@Model.Items.Sum(i => i.Price * i.Quantity).ToString("#,##0") đ</span>
+                        </div>
+                        <a asp-action="Checkout" class="btn btn-success w-100 py-2.5 fs-5 fw-semibold shadow rounded-pill">
+                            <i class="bi bi-credit-card-2-front-fill"></i> Tiến hành đặt hàng
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

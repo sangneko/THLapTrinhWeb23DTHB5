@@ -1,0 +1,137 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Đăng Nhập Hệ Thống";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="card shadow-lg border-0 rounded-4 overflow-hidden" style="max-width: 500px; width: 100%; background: #ffffff;">
+
+        <!-- Header màu tối sang trọng đồng bộ TechShop -->
+        <div class="bg-dark text-center py-4 position-relative border-bottom border-warning border-3">
+            <h3 class="text-warning fw-bold text-uppercase m-0 tracking-wide">
+                <i class="bi bi-shield-lock-fill me-2"></i> Đăng Nhập
+            </h3>
+            <p class="text-white-50 small m-0 mt-1">Chào mừng bạn trở lại với TechShop</p>
+        </div>
+
+        <div class="card-body p-4 p-sm-5">
+            <form id="account" method="post">
+                <!-- Thông báo lỗi tổng quát nếu có -->
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger small py-2 rounded-3 mb-4" role="alert"></div>
+
+                <!-- Ô nhập Email -->
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control rounded-3 border-secondary-subtle" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Email" class="text-secondary"><i class="bi bi-envelope me-1"></i> Địa chỉ Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger small mt-1 d-block"></span>
+                </div>
+
+                <!-- Ô nhập Mật khẩu -->
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" class="form-control rounded-3 border-secondary-subtle" autocomplete="current-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.Password" class="text-secondary"><i class="bi bi-key me-1"></i> Mật khẩu</label>
+                    <span asp-validation-for="Input.Password" class="text-danger small mt-1 d-block"></span>
+                </div>
+
+                <!-- Ghi nhớ đăng nhập -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="form-check m-0">
+                        <input class="form-check-input border-secondary" asp-for="Input.RememberMe" />
+                        <label asp-for="Input.RememberMe" class="form-check-label small text-dark fw-semibold">
+                            Ghi nhớ tài khoản
+                        </label>
+                    </div>
+                    <a id="forgot-password" asp-page="./ForgotPassword" class="text-decoration-none small fw-semibold text-warning-dark">Quên mật khẩu?</a>
+                </div>
+
+                <!-- Nút Đăng Nhập lớn hoành tráng -->
+                <div class="mb-4">
+                    <button id="login-submit" type="submit" class="w-100 btn btn-warning text-dark fw-bold py-2.5 rounded-pill shadow-sm text-uppercase btn-login-submit">
+                        <i class="bi bi-box-arrow-in-right me-1"></i> Đăng Nhập Ngay
+                    </button>
+                </div>
+
+                <!-- Link chuyển hướng đăng ký nhanh -->
+                <div class="text-center border-top pt-3">
+                    <p class="small text-muted mb-1">Chưa có tài khoản TechShop?</p>
+                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="fw-bold text-dark text-decoration-none hover-underline">
+                        <i class="bi bi-person-plus-fill me-1 text-warning"></i> Tạo tài khoản mới
+                    </a>
+                </div>
+
+                <!-- Nút gửi lại email xác nhận (Thu gọn tinh tế bên dưới) -->
+                <div class="text-center mt-3">
+                    <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="text-muted small text-decoration-none hover-warning">
+                        <i class="bi bi-envelope-exclamation me-1"></i> Gửi lại email kích hoạt tài khoản
+                    </a>
+                </div>
+            </form>
+
+            <!-- ================= KHỐI ĐĂNG NHẬP BÊN THỨ 3 (GOOGLE/FACEBOOK) ================= -->
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                {
+                    <div class="mt-4 pt-3 border-top text-center">
+                        <p class="small text-muted mb-3">Hoặc đăng nhập bằng mạng xã hội</p>
+                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                            <div class="d-flex justify-content-center gap-2">
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    string btnClass = provider.Name.ToLower() == "google" ? "btn-outline-danger" : "btn-outline-primary";
+                                    string iconClass = provider.Name.ToLower() == "google" ? "bi-google" : "bi-facebook";
+
+                                    <button type="submit" class="btn @btnClass rounded-pill px-4 btn-sm fw-semibold d-inline-flex align-items-center gap-2" name="provider" value="@provider.Name" title="Đăng nhập bằng tài khoản @provider.DisplayName">
+                                        <i class="bi @iconClass"></i> @provider.DisplayName
+                                    </button>
+                                }
+                            </div>
+                        </form>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<!-- STYLE CSS TINH CHỈNH RIÊNG CHO FORM ĐĂNG NHẬP -->
+<style>
+    .tracking-wide {
+        letter-spacing: 1.5px;
+    }
+
+    .text-warning-dark {
+        color: #d39e00;
+    }
+
+        .text-warning-dark:hover {
+            color: #b58600;
+        }
+
+    .form-control:focus {
+        border-color: #ffc107 !important;
+        box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25) !important;
+    }
+
+    .btn-login-submit {
+        transition: all 0.2s ease-in-out;
+    }
+
+        .btn-login-submit:hover {
+            background-color: #e68a00 !important;
+            transform: scale(1.01);
+        }
+
+    .hover-underline:hover {
+        text-decoration: underline !important;
+    }
+
+    .hover-warning:hover {
+        color: #ffc107 !important;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
